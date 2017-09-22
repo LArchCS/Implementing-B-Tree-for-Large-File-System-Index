@@ -20,12 +20,10 @@ public class LeafNode extends Node {
 
 
 	public void outputForGraphviz() {
-
 		// The name of a node will be its first key value
 		// String name = "L" + String.valueOf(keys[1]);
 		// name = BTree.nextNodeName();
 
-		// Now, prepare the label string
 		String label = "";
 		for (int j = 0; j < lastindex; j++) {
 			if (j > 0) label += "|";
@@ -40,9 +38,6 @@ public class LeafNode extends Node {
 	 */
 	public int minkeys() {
 		int min = 0;
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
 		min = (int)Math.ceil((degree - 1) / 2.0);
 		return Math.max(min, 0);
 	}
@@ -53,9 +48,6 @@ public class LeafNode extends Node {
        @return true if this node can be combined with other; otherwise false.
 	 */
 	public boolean combinable(Node other) {
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
 		return lastindex + other.lastindex <= maxkeys();
 	}
 
@@ -64,10 +56,6 @@ public class LeafNode extends Node {
        into a single node
 	 */
 	public void combine() {
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
-
 		if (next == null) {
 			return;
 		}
@@ -103,10 +91,6 @@ public class LeafNode extends Node {
 	 */
 	public int redistribute() {
 		int key = 0;
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
-
 		System.out.print("\nredistribute leaf:\t" + Arrays.toString(keys) + lastindex + "\t" + Arrays.toString(next.keys) + next.lastindex);
 
 		// since it is a leaf node, only need to address keys, not ptrs
@@ -154,10 +138,6 @@ public class LeafNode extends Node {
        @param i the index where this value should be
 	 */
 	public void insertSimple(int val, Node ptr, int i) {
-		////////////////////
-		// ADD CODE HERE  //
-		////////////////////
-
 		// shift to right by one position
 		lastindex += 1;
 		for (int j = lastindex; j >= i; j--) {
@@ -176,10 +156,6 @@ public class LeafNode extends Node {
        one position to the left.
 	 */
 	public void deleteSimple(int i) {
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
-
 		// shift to left by one position
 		System.out.println("delete leaf:\t\t" + Arrays.toString(keys) + lastindex + "\tindex:" + i + "\tval:" + keys[i]);
 		lastindex -= 1;
@@ -200,10 +176,6 @@ public class LeafNode extends Node {
        @return a Reference object referring to this node.
 	 */
 	public Reference search(int val) {
-		Reference ref = null;
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
 		int index = findKeyIndex(val);
 		if (keys[index] == val) {
 			ref = new Reference(this, index, true);
@@ -221,9 +193,6 @@ public class LeafNode extends Node {
        @param ptr (not used now, use null when calling this method)
 	 */
 	public void insert(int val, Node ptr) {
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
 		if (full()) {
 			Node nextNode = this.getNext();
 			LeafNode newLeaf = new LeafNode(degree, val, nextNode, this);
