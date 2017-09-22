@@ -3,7 +3,6 @@ import java.util.*;
 
 /**
     Internal Nodes of B+-Trees.
-    @author cs127b
  */
 public class InternalNode extends Node{
 
@@ -36,9 +35,6 @@ public class InternalNode extends Node{
 	 */
 	public int minkeys() {
 		int min = 0;
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
 		if (parentref == null) {
 			return 1;
 		}
