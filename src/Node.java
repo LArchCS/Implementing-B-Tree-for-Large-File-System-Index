@@ -206,10 +206,6 @@ public abstract class Node{
 	 */
 	public int findKeyIndex (int val){
 		int i = 1;
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
-		// keys[i-1] < val <= keys[i]
 		if (val <= keys[1]) {
 			return 1;
 		}
@@ -235,10 +231,6 @@ public abstract class Node{
 	 */
 	public int findPtrIndex(int val) {
 		int index = 0;
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
-
 		if (val < keys[1]) {
 			return 0;
 		}
@@ -315,11 +307,7 @@ public abstract class Node{
        redistribute nodes if necessary to preserve order of node.
        @param i the index of key and pointer to delete
 	 */
-	public void delete (int i){  // not sure
-		///////////////////
-		// ADD CODE HERE //
-		///////////////////
-
+	public void delete (int i) {
 		// if delete the first key, then update all parents
 		int oldKey = keys[1];
 		if (i == 1 && lastindex >= 2 && parentref != null) {
@@ -429,10 +417,6 @@ public abstract class Node{
 	 */
 	public abstract void insert(int val, Node ptr);
 
-
-
-	// self added methods
-
 	// replaceParent: used for redistribution
 	public void replaceParent(int key, Reference parent) {
 		System.out.println("replaceParent:\t\t" + parent.getNode().keys[parent.getIndex()] + " " + key);
@@ -441,7 +425,6 @@ public abstract class Node{
 		parentNode.keys[parentIndex] = key;
 	}
 
-	// self added method
 	void updateParent(int oldKey, int newKey) {
 		System.out.println("updateParent:\t\t" + oldKey + " " + newKey);
 		Node curt = this;
