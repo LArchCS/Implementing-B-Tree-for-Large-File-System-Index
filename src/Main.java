@@ -12,7 +12,6 @@ public class Main{
 		int n;
 		for (String s : commands) {
 			char c = s.charAt(0);
-
 			switch (c){
 			case 'n':
 				n = Integer.valueOf(s.substring(1));
@@ -45,9 +44,7 @@ public class Main{
 				break;
 			}
 		}
-
 		return T;
-
 	}
 
 	/**
@@ -55,18 +52,13 @@ public class Main{
 	 */
 	public static void main (String[] args){
 		System.out.println ("commands: nX (new tree degree X), l (locate), i (insert), d (delete), q (quit)");
-
 		Scanner sc = new Scanner(System.in);
-
 		List<String> commands = new ArrayList<String>();
-
 		String line;
 		while (!(line = sc.nextLine()).equals("q")) {
 			commands.add(line);
 		}
-
 		buildTree(commands.toArray(new String[] {}));
-
 		sc.close();
 	}
 }
